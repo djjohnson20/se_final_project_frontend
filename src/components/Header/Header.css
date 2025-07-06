@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  background-image: url("../../assets/newsimage.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header__controls {
+  display: flex;
+  flex-direction: row;
+}
+
+.header__logo {
+  font-family: "Roboto Slab", serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
