@@ -6,8 +6,8 @@ function Navigation() {
   return (
     <nav className="nav">
       <ul className="nav__links">
-        <Link to="/">
-          <li className="nav__link">Home</li>
+        <Link className="nav__link" to="/">
+          Home
         </Link>
       </ul>
       <button className="nav__sign-in">Sign In</button>

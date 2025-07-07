@@ -9,8 +9,8 @@ function Header() {
   return (
     <header className="header">
       <div className="header__controls">
-        <Link to="/">
-          <p className="header__logo">NewsExplorer</p>
+        <Link className="header__logo" to="/">
+          NewsExplorer
         </Link>
         <Navigation />
       </div>

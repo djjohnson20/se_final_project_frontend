@@ -1,4 +1,43 @@
 .nav {
   display: flex;
   flex-direction: row;
+  gap: 42px;
+}
+
+.nav__links {
+  margin: 0;
+  padding-top: 30px;
+  padding-bottom: 26px;
+}
+
+.nav__link {
+  font-family: "Roboto", serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav__link:hover {
+  border-bottom: 3px solid #fff;
+  padding-bottom: 26px;
+}
+
+.nav__sign-in {
+  color: #fff;
+  background-color: transparent;
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 19px;
+  margin-bottom: 13px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: 1px solid;
+  border-radius: 100px;
+  width: 176px;
+  height: 48px;
+  border-color: #fff;
+  cursor: pointer;
 }

@@ -1,4 +1,82 @@
 .search {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.search__title {
+  color: #fff;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 60px;
+  max-width: 608px;
+  max-height: 128px;
+  margin: 0;
+  padding-top: 80px;
+  padding-bottom: 32px;
+}
+
+.search__text {
+  color: #fff;
+  font-family: "Roboto", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+  max-width: 608px;
+  max-height: 24px;
+  padding-bottom: 88px;
+}
+
+.search__form {
+  position: relative;
+  margin: 0;
+  padding-bottom: 80px;
+}
+
+.search__input {
+  width: 608px;
+  margin: 0;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-radius: 100px;
+  border-color: transparent;
+  padding-left: 24px;
+}
+
+.search__btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0px;
+  top: 0px;
+  font-family: "Roboto", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #fff;
+  vertical-align: middle;
+  background-color: #2f71e5;
+  border: none;
+  border-radius: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 168px;
+  height: 70px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.search__btn:hover {
+  background-color: #347eff;
+}
+
+::placeholder {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  opacity: 0.5;
 }
