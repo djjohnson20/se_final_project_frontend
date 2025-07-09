@@ -1,4 +1,44 @@
 .footer {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 26px;
+}
+
+.footer__copyright {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #b6bcbf;
+  margin: 0;
+  padding-left: 104px;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: row;
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  gap: 40px;
+  padding-left: 150px;
+}
+
+.footer__home {
+  color: #1a1b22;
+  text-decoration: none;
+}
+
+.footer__tripleten {
+  color: #1a1b22;
+  text-decoration: none;
+}
+
+.footer__social {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding-right: 104px;
 }
