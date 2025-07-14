@@ -1,12 +1,16 @@
 import "./NewsCardList.css";
-import { newsArticles } from "../../utils/constants";
 import NewsCard from "../NewsCard/NewsCard";
 
-function NewsCardList() {
+function NewsCardList({ newsItems }) {
   return (
     <div className="newscard__list">
       <h1 className="newscard__list-title">Search Results</h1>
-      <NewsCard article={newsArticles[0]} />
+      <div className="newscards">
+        {newsItems.map((article) => {
+          return <NewsCard key={article.url} article={article} />;
+        })}
+      </div>
+      <button className="newscard__show-more"></button>
     </div>
   );
 }

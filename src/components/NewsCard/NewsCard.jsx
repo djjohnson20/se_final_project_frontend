@@ -4,7 +4,8 @@ function NewsCard({ article }) {
   return (
     <li className="card">
       <div className="card__name-container">
-        <img src={article.urlToImage} alt="puppy" className="card__image" />
+        <button className="card__like-btn"></button>
+        <img src={article.urlToImage} alt="" className="card__image" />
         <p className="card__date">{article.publishedAt}</p>
         <h2 className="card__title">{article.title}</h2>
         <p className="card__content">{article.content}</p>

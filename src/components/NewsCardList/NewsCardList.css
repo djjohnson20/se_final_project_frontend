@@ -3,7 +3,29 @@
   padding-bottom: 208px;
 }
 
+.newscards {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
 .newscard__list-title {
-  padding-top: 104px;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+  padding-top: 80px;
+  padding-bottom: 64px;
   margin: 0;
+}
+
+.newscard__show-more {
+  display: flex;
+  background-image: url("../../assets/showmore.png");
+  background-color: transparent;
+  margin: 64px auto 80px auto;
+  width: 288px;
+  height: 64px;
+  border: none;
+  display: none;
 }

@@ -22,9 +22,9 @@ const newsArticles = [
       "Stealth UK Startup Building Iron Dome-Like Tech Eyes $400 Million Valuation",
     url: "https://biztoc.com/x/826e7bb8c52ac1bc",
     urlToImage: "https://biztoc.com/cdn/950/og.png",
-    publishedAt: "2025-07-10T17:25:51Z",
-    content:
-      "{ window.open(this.href, '_blank'); }, 200); return false;\"&gt;Why did Nvidia reach $4 trillion market cap? { window.open(this.href, '_blank'); }, 200); return false;\"&gt;How will Trump's 50% Brazil … [+748 chars]",
+    publishedAt: "July 10th, 2025",
+    description: "Tech",
+    content: "We are the world! We will stand for what we believe!",
   },
 ];
 
