@@ -1,11 +1,12 @@
 .newscard__list {
-  padding-right: 90px;
+  padding-left: 104px;
+  padding-right: 104px;
   padding-bottom: 208px;
 }
 
 .newscards {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   gap: 16px;
 }
 

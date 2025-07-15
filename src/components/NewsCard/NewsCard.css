@@ -1,10 +1,10 @@
 .card {
   display: flex;
   position: relative;
+  flex-shrink: 0;
   width: 400px;
-  max-height: 576px;
+  height: 576px;
   background-color: #fff;
-  border: 1px solid transparent;
   border-radius: 10px;
   overflow: hidden;
   list-style-type: none;
