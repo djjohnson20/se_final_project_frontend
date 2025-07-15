@@ -6,8 +6,10 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function App() {
+  const [activeModal, setActiveModal] = useState("");
   return (
     <div className="page">
       <div className="page__content">
