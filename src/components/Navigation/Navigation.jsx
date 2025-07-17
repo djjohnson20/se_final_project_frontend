@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import "./Navigation.css";
 
-function Navigation() {
+function Navigation({ handleLoginClick }) {
   return (
     <nav className="nav">
       <ul className="nav__links">
@@ -10,7 +10,9 @@ function Navigation() {
           Home
         </Link>
       </ul>
-      <button className="nav__sign-in">Sign In</button>
+      <button onClick={handleLoginClick} className="nav__sign-in">
+        Sign In
+      </button>
     </nav>
   );
 }

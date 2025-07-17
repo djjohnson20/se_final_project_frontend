@@ -1,8 +1,33 @@
+import { useEffect } from "react";
+
 import "./ModalWithForm.css";
 
 function ModalWithForm({ children, title, isOpen, onClose, onSubmit }) {
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      onClose();
+    }
+  };
+
+  const handleOverlayClick = (event) => {
+    event.stopPropagation();
+    if (event.target.classList.contains("modal")) {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
+
   return (
-    <div className={`modal ${isOpen && "modal_opened"}`}>
+    <div
+      onClick={handleOverlayClick}
+      className={`modal ${isOpen && "modal_opened"}`}
+    >
       <div className="modal__content">
         <h2 className="modal__title">{title}</h2>
         <button
