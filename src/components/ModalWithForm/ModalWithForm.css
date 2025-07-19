@@ -62,27 +62,8 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.modal__radio-buttons {
-  display: flex;
-  flex-direction: column;
-  border: none;
-  padding: 0;
-}
-
-.modal__radio-input {
-  accent-color: black;
-}
-
-.modal__legend {
-  font-family: "Cabinet Grotesk", sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
-  padding-bottom: 12px;
-}
-
 .modal__label {
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Inter", sans-serif;
   color: #2f71e5;
   font-weight: 400;
   font-size: 12px;
