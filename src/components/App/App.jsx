@@ -28,7 +28,9 @@ function App() {
     <div className="page">
       <div className="page__content">
         <Header handleLoginClick={handleLoginClick} />
-        <Main />
+        <Routes>
+          <Route path="/" element={<Main />} />
+        </Routes>
         <About />
         <Footer />
       </div>
