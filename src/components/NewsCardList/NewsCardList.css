@@ -28,5 +28,6 @@
   width: 288px;
   height: 64px;
   border: none;
-  display: none;
+  cursor: pointer;
+  visibility: hidden;
 }

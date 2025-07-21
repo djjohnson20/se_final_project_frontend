@@ -22,7 +22,7 @@ function RegisterModal({ onClose, isOpen, onLogin, onRegister }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin({ email, password })
+    onRegister({ email, password, name })
       .then(() => {
         onClose();
       })
