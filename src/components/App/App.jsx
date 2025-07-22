@@ -8,9 +8,34 @@ import About from "../About/About";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import { login, getCurrentUser } from "../../utils/api";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState("");
+
+  const handleLogIn = ({ email, password }) => {
+    return login({ email, password })
+      .then((loginData) => {
+        const token = loginData.token;
+        return getCurrentUser(token);
+      })
+      .then((userData) => {
+        const user = userData.data.name;
+        setIsLoggedIn(true);
+        setCurrentUser(user);
+        return user;
+      })
+      .catch((err) => {
+        console.log("Login failed:", err.message);
+      });
+  };
+
+  const handleLogOut = () => {
+    setIsLoggedIn(false);
+    setCurrentUser("");
+  };
 
   const handleLoginClick = () => {
     setActiveModal("login");
@@ -27,9 +52,15 @@ function App() {
   return (
     <div className="page">
       <div className="page__content">
-        <Header handleLoginClick={handleLoginClick} />
+        <Header
+          handleLoginClick={handleLoginClick}
+          handleLogOut={handleLogOut}
+          isLoggedIn={isLoggedIn}
+          currentUser={currentUser}
+        />
         <Routes>
           <Route path="/" element={<Main />} />
+          <Route path="/saved-news" element={<Header />} />
         </Routes>
         <About />
         <Footer />
@@ -38,7 +69,7 @@ function App() {
         onClose={closeActiveModal}
         activeModal={activeModal}
         isOpen={activeModal === "login"}
-        onLogin={handleLoginClick}
+        onLogin={handleLogIn}
         onRegister={handleRegisterClick}
       />
       <RegisterModal

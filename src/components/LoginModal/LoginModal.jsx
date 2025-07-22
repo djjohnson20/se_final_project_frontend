@@ -50,7 +50,7 @@ function LoginModal({ onClose, isOpen, onLogin, onRegister }) {
           type="email"
           className="modal__input"
           id="login-email"
-          placeholder="Email"
+          placeholder="Enter email"
           onChange={handleEmailChange}
           value={email}
           required
@@ -63,7 +63,7 @@ function LoginModal({ onClose, isOpen, onLogin, onRegister }) {
           type="password"
           className="modal__input"
           id="login-password"
-          placeholder="Password"
+          placeholder="Enter password"
           onChange={handlePasswordChange}
           value={password}
           required
