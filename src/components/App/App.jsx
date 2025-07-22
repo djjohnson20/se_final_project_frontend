@@ -60,7 +60,7 @@ function App() {
         />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/saved-news" element={<Header />} />
+          <Route path="/saved-articles" element={<Header />} />
         </Routes>
         <About />
         <Footer />
