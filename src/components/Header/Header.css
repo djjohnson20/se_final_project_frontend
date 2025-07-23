@@ -30,3 +30,12 @@
   padding-top: 30px;
   padding-bottom: 26px;
 }
+
+.header--white {
+  background-image: none;
+  background-color: #fff;
+}
+
+.header__logo--white {
+  color: #000;
+}

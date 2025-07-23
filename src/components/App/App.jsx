@@ -8,7 +8,8 @@ import About from "../About/About";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
-import { login, getCurrentUser } from "../../utils/api";
+import ProtectedRoute from "../ProtectedRoute";
+import { login, getCurrentUser } from "../../utils/auth";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -60,7 +61,14 @@ function App() {
         />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/saved-articles" element={<Header />} />
+          <Route
+            path="/saved-articles"
+            element={
+              <ProtectedRoute isLoggedIn={isLoggedIn}>
+                <Main />{" "}
+              </ProtectedRoute>
+            }
+          />
         </Routes>
         <About />
         <Footer />
