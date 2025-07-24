@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-import { useContext } from "react";
 
 import "./Header.css";
 import Navigation from "../Navigation/Navigation";
@@ -21,6 +20,19 @@ function Header({ handleLoginClick, isLoggedIn, currentUser, handleLogOut }) {
   ]
     .filter(Boolean)
     .join(" ");
+
+  const articleContent =
+    location.pathname === "/saved-articles" ? (
+      <div className="saved__content">
+        <p className="saved__title">Saved articles</p>
+        <h2 className="saved__articles">Elise, you have 3 saved articles</h2>
+        <p className="saved__keywords">
+          By keywords: <span className="keywords">puppies, tech</span>
+        </p>
+      </div>
+    ) : (
+      <SearchForm />
+    );
   return (
     <header className={headerClasses}>
       <div className="header__controls">
@@ -34,7 +46,7 @@ function Header({ handleLoginClick, isLoggedIn, currentUser, handleLogOut }) {
           handleLogOut={handleLogOut}
         />
       </div>
-      <SearchForm />
+      {articleContent}
     </header>
   );
 }

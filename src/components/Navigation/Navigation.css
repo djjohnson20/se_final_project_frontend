@@ -22,8 +22,16 @@
   border-bottom: 3px solid transparent;
 }
 
+.nav__link--white {
+  color: #1a1b22;
+}
+
 .nav__link:hover {
   border-bottom: 3px solid #fff;
+}
+
+.nav__link--white:hover {
+  border-bottom: 3px solid #1a1b22;
 }
 
 .nav__sign-in {
@@ -44,6 +52,11 @@
   height: 48px;
   border-color: #fff;
   cursor: pointer;
+}
+
+.nav__sign-in--white {
+  color: #1a1b22;
+  border-color: #1a1b22;
 }
 
 .nav__logout-btn {

@@ -60,18 +60,26 @@ function App() {
           currentUser={currentUser}
         />
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Main />
+                <About />
+                <Footer />
+              </>
+            }
+          />
           <Route
             path="/saved-articles"
             element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
-                <Main />{" "}
+                <Main />
+                <Footer />
               </ProtectedRoute>
             }
           />
         </Routes>
-        <About />
-        <Footer />
       </div>
       <LoginModal
         onClose={closeActiveModal}

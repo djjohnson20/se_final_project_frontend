@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import "./Navigation.css";
 import LogoutBtn from "../../assets/logout.png";
+import LogoutBtnDark from "../../assets/logoutdark.png";
 
 function Navigation({
   handleLoginClick,
@@ -9,11 +10,30 @@ function Navigation({
   currentUser,
   handleLogOut,
 }) {
+  const location = useLocation();
+
+  const navClasses = [
+    "nav__link",
+    location.pathname === "/saved-articles" ? "nav__link--white" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const navBtnClasses = [
+    "nav__sign-in",
+    location.pathname === "/saved-articles" ? "nav__sign-in--white" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const navLogoutImage =
+    location.pathname === "/saved-articles" ? LogoutBtnDark : LogoutBtn;
+
   return !isLoggedIn ? (
     <>
       <nav className="nav">
         <ul className="nav__links">
-          <Link className="nav__link" to="/">
+          <Link className={navClasses} to="/">
             Home
           </Link>
         </ul>
@@ -25,16 +45,20 @@ function Navigation({
   ) : (
     <nav className="nav">
       <ul className="nav__links">
-        <Link className="nav__link" to="/">
+        <Link className={navClasses} to="/">
           Home
         </Link>
-        <Link className="nav__link" to="/saved-articles">
+        <Link className={navClasses} to="/saved-articles">
           Saved Articles
         </Link>
       </ul>
-      <button onClick={handleLogOut} className="nav__sign-in">
+      <button onClick={handleLogOut} className={navBtnClasses}>
         {currentUser}{" "}
-        <img className="nav__logout-btn" src={LogoutBtn} alt="log out button" />
+        <img
+          className="nav__logout-btn"
+          src={navLogoutImage}
+          alt="log out button"
+        />
       </button>
     </nav>
   );
