@@ -4,25 +4,32 @@ import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 
-function Header({ handleLoginClick, isLoggedIn, currentUser, handleLogOut }) {
+function Header({
+  handleLoginClick,
+  isLoggedIn,
+  currentUser,
+  handleLogOut,
+  keyword,
+  setKeyword,
+}) {
   const location = useLocation();
 
   const headerClasses = [
     "header",
-    location.pathname === "/saved-articles" ? "header--white" : "",
+    location.pathname === "/saved-news" ? "header--white" : "",
   ]
     .filter(Boolean)
     .join(" ");
 
   const headerLogoClasses = [
     "header__logo",
-    location.pathname === "/saved-articles" ? "header__logo--white" : "",
+    location.pathname === "/saved-news" ? "header__logo--white" : "",
   ]
     .filter(Boolean)
     .join(" ");
 
   const articleContent =
-    location.pathname === "/saved-articles" ? (
+    location.pathname === "/saved-news" ? (
       <div className="saved__content">
         <p className="saved__title">Saved articles</p>
         <h2 className="saved__articles">Elise, you have 3 saved articles</h2>
@@ -31,7 +38,7 @@ function Header({ handleLoginClick, isLoggedIn, currentUser, handleLogOut }) {
         </p>
       </div>
     ) : (
-      <SearchForm />
+      <SearchForm keyword={keyword} setKeyword={setKeyword} />
     );
   return (
     <header className={headerClasses}>

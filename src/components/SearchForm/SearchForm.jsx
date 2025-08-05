@@ -1,6 +1,12 @@
+import { useState } from "react";
+
 import "./SearchForm.css";
 
-function SearchForm() {
+function SearchForm({ keyword, setKeyword }) {
+  const handleChange = (e) => {
+    setKeyword(e.target.value);
+  };
+
   return (
     <div className="search">
       <h1 className="search__title">What's going on in the world?</h1>
@@ -10,6 +16,8 @@ function SearchForm() {
       <form action="" className="search__form">
         <input
           type="text"
+          value={keyword}
+          onChange={handleChange}
           placeholder="Enter topic"
           className="search__input"
         />

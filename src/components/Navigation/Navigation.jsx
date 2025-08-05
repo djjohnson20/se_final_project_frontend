@@ -12,28 +12,35 @@ function Navigation({
 }) {
   const location = useLocation();
 
-  const navClasses = [
+  const homeClasses = [
     "nav__link",
-    location.pathname === "/saved-articles" ? "nav__link--white" : "",
+    location.pathname === "/saved-news" ? "nav__link--white" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const savedArticlesClasses = [
+    "nav__link",
+    location.pathname === "/saved-news" ? "nav__link--white" : "",
   ]
     .filter(Boolean)
     .join(" ");
 
   const navBtnClasses = [
     "nav__sign-in",
-    location.pathname === "/saved-articles" ? "nav__sign-in--white" : "",
+    location.pathname === "/saved-news" ? "nav__sign-in--white" : "",
   ]
     .filter(Boolean)
     .join(" ");
 
   const navLogoutImage =
-    location.pathname === "/saved-articles" ? LogoutBtnDark : LogoutBtn;
+    location.pathname === "/saved-news" ? LogoutBtnDark : LogoutBtn;
 
   return !isLoggedIn ? (
     <>
       <nav className="nav">
         <ul className="nav__links">
-          <Link className={navClasses} to="/">
+          <Link className={homeClasses} to="/">
             Home
           </Link>
         </ul>
@@ -45,10 +52,10 @@ function Navigation({
   ) : (
     <nav className="nav">
       <ul className="nav__links">
-        <Link className={navClasses} to="/">
+        <Link className={homeClasses} to="/">
           Home
         </Link>
-        <Link className={navClasses} to="/saved-articles">
+        <Link className={savedArticlesClasses} to="/saved-news">
           Saved Articles
         </Link>
       </ul>

@@ -10,11 +10,20 @@ import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ProtectedRoute from "../ProtectedRoute";
 import { login, getCurrentUser } from "../../utils/auth";
+import { newsArticles } from "../../utils/constants";
+import getNewsItems from "../../utils/api";
+import { apiKey } from "../../utils/constants";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState("");
+  const [keyword, setKeyword] = useState("");
+  const [newsItems, setNewsItems] = useState(newsArticles);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   const handleLogIn = ({ email, password }) => {
     return login({ email, password })
@@ -58,23 +67,25 @@ function App() {
           handleLogOut={handleLogOut}
           isLoggedIn={isLoggedIn}
           currentUser={currentUser}
+          keyword={keyword}
+          setKeyword={setKeyword}
         />
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <Main />
+                <Main newsItems={newsItems} setKeyword={setKeyword} />
                 <About />
                 <Footer />
               </>
             }
           />
           <Route
-            path="/saved-articles"
+            path="/saved-news"
             element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
-                <Main />
+                <Main newsItems={newsItems} />
                 <Footer />
               </ProtectedRoute>
             }
