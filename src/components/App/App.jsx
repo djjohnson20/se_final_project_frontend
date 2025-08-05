@@ -12,7 +12,6 @@ import ProtectedRoute from "../ProtectedRoute";
 import { login, getCurrentUser } from "../../utils/auth";
 import { newsArticles } from "../../utils/constants";
 import getNewsItems from "../../utils/api";
-import { apiKey } from "../../utils/constants";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
