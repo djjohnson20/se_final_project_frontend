@@ -42,11 +42,9 @@ const newsArticles = [
   },
 ];
 
-const apiKey = "32278f01a38743c3918eae697c9cfb62";
-
 const newsApiBaseUrl =
   process.env.NODE_ENV === "production"
     ? "https://nomoreparties.co/news/v2/everything"
     : "https://newsapi.org/v2/everything";
 
-export { newsArticles, apiKey, newsApiBaseUrl };
+export { newsArticles, newsApiBaseUrl };
