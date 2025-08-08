@@ -11,6 +11,8 @@ function Header({
   handleLogOut,
   keyword,
   setKeyword,
+  errorMessage,
+  handleSubmit,
 }) {
   const location = useLocation();
 
@@ -38,7 +40,12 @@ function Header({
         </p>
       </div>
     ) : (
-      <SearchForm keyword={keyword} setKeyword={setKeyword} />
+      <SearchForm
+        keyword={keyword}
+        setKeyword={setKeyword}
+        errorMessage={errorMessage}
+        handleSubmit={handleSubmit}
+      />
     );
   return (
     <header className={headerClasses}>

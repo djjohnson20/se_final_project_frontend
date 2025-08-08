@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "./SearchForm.css";
 
-function SearchForm({ keyword, setKeyword }) {
+function SearchForm({ keyword, setKeyword, errorMessage, handleSubmit }) {
   const handleChange = (e) => {
     setKeyword(e.target.value);
   };
@@ -13,7 +13,7 @@ function SearchForm({ keyword, setKeyword }) {
       <p className="search__text">
         Find the latest news on any topic and save them in your personal account
       </p>
-      <form action="" className="search__form">
+      <form onSubmit={handleSubmit} action="" className="search__form">
         <input
           type="text"
           value={keyword}
@@ -21,7 +21,9 @@ function SearchForm({ keyword, setKeyword }) {
           placeholder="Enter topic"
           className="search__input"
         />
-        <button className="search__btn">Search</button>
+        <button type="submit" className="search__btn">
+          Search
+        </button>
       </form>
     </div>
   );

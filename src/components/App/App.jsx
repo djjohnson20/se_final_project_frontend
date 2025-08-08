@@ -8,9 +8,9 @@ import About from "../About/About";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import PreLoader from "../Preloader/Preloader";
 import ProtectedRoute from "../ProtectedRoute";
 import { login, getCurrentUser } from "../../utils/auth";
-import { newsArticles } from "../../utils/constants";
 import getNewsItems from "../../utils/api";
 
 function App() {
@@ -18,10 +18,45 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState("");
   const [keyword, setKeyword] = useState("");
-  const [newsItems, setNewsItems] = useState(newsArticles);
+  const [newsItems, setNewsItems] = useState([]);
+  const [ApiCall, SetapiCall] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [hasSearched, setHasSearched] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (keyword.trim() === "") {
+      setErrorMessage("Please enter a keyword");
+      return;
+    }
+
+    setErrorMessage("");
+    setHasSearched(true);
+    SetapiCall(true);
+
+    const today = new Date();
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(today.getDate() - 7);
+    const todayStr = today.toISOString().split("T")[0];
+    const sevenDaysAgoStr = sevenDaysAgo.toISOString().split("T")[0];
+    const pageSize = "100";
+
+    getNewsItems({
+      q: keyword,
+      from: sevenDaysAgoStr,
+      to: todayStr,
+      pageSize: pageSize,
+    })
+      .then((data) => {
+        setNewsItems(data.articles);
+        SetapiCall(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching news:", err);
+        setErrorMessage("Failed to fetch news. Please try again.");
+        SetapiCall(false);
+      });
   };
 
   const handleLogIn = ({ email, password }) => {
@@ -68,13 +103,22 @@ function App() {
           currentUser={currentUser}
           keyword={keyword}
           setKeyword={setKeyword}
+          errorMessage={errorMessage}
+          handleSubmit={handleSubmit}
         />
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <Main newsItems={newsItems} setKeyword={setKeyword} />
+                {ApiCall ? (
+                  <PreLoader />
+                ) : newsItems.length > 0 ? (
+                  <Main newsItems={newsItems} setKeyword={setKeyword} />
+                ) : hasSearched ? (
+                  <p>No results found. Try another keyword.</p>
+                ) : null}
+
                 <About />
                 <Footer />
               </>
