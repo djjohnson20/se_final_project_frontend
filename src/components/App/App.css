@@ -6,3 +6,38 @@
   max-width: 1440px;
   margin: 0 auto;
 }
+
+.nothing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f6f7;
+}
+
+.nothing__found {
+  padding-top: 86px;
+  padding-bottom: 31.5px;
+  width: 74px;
+  height: 74px;
+}
+
+.nothing__title {
+  margin: 0;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+  color: #1a1b22;
+  padding-bottom: 16px;
+}
+
+.nothing__description {
+  margin: 0;
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #b6bcbf;
+  padding-bottom: 80px;
+  text-align: center;
+}

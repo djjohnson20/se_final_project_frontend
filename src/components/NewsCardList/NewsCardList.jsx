@@ -23,10 +23,10 @@ function NewsCardList({ newsItems }) {
     .join(" ");
 
   const handleShowMore = () => {
-    setVisibleCount(newsItems.length);
+    setVisibleCount((newsItems || []).length);
   };
 
-  const visibleArticles = newsItems.slice(0, visibleCount);
+  const visibleArticles = (newsItems || []).slice(0, visibleCount);
 
   return (
     <div className={savedNewsList}>
@@ -38,12 +38,13 @@ function NewsCardList({ newsItems }) {
         ))}
       </div>
 
-      {newsItems.length > 3 && visibleCount < newsItems.length && (
-        <button
-          className="newscard__show-more"
-          onClick={handleShowMore}
-        ></button>
-      )}
+      {(newsItems || []).length > 3 &&
+        visibleCount < (newsItems || []).length && (
+          <button
+            className="newscard__show-more"
+            onClick={handleShowMore}
+          ></button>
+        )}
     </div>
   );
 }

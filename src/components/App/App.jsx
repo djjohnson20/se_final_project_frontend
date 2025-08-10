@@ -12,6 +12,7 @@ import PreLoader from "../Preloader/Preloader";
 import ProtectedRoute from "../ProtectedRoute";
 import { login, getCurrentUser } from "../../utils/auth";
 import getNewsItems from "../../utils/api";
+import NotFoundFace from "../../assets/not-found_v1.png";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -22,6 +23,16 @@ function App() {
   const [ApiCall, SetapiCall] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
+
+  useEffect(() => {
+    const savedToken = localStorage.getItem("token");
+    const savedUser = localStorage.getItem("user");
+
+    if (savedToken && savedUser) {
+      setIsLoggedIn(true);
+      setCurrentUser(JSON.parse(savedUser));
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,7 +51,7 @@ function App() {
     sevenDaysAgo.setDate(today.getDate() - 7);
     const todayStr = today.toISOString().split("T")[0];
     const sevenDaysAgoStr = sevenDaysAgo.toISOString().split("T")[0];
-    const pageSize = "100";
+    const pageSize = "6";
 
     getNewsItems({
       q: keyword,
@@ -63,10 +74,12 @@ function App() {
     return login({ email, password })
       .then((loginData) => {
         const token = loginData.token;
+        localStorage.setItem("token", token);
         return getCurrentUser(token);
       })
       .then((userData) => {
         const user = userData.data.name;
+        localStorage.setItem("user", JSON.stringify(user));
         setIsLoggedIn(true);
         setCurrentUser(user);
         return user;
@@ -77,6 +90,8 @@ function App() {
   };
 
   const handleLogOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setIsLoggedIn(false);
     setCurrentUser("");
   };
@@ -116,7 +131,18 @@ function App() {
                 ) : newsItems.length > 0 ? (
                   <Main newsItems={newsItems} setKeyword={setKeyword} />
                 ) : hasSearched ? (
-                  <p>No results found. Try another keyword.</p>
+                  <div className="nothing">
+                    <img
+                      src={NotFoundFace}
+                      alt="sad face"
+                      className="nothing__found"
+                    />
+                    <p className="nothing__title">Nothing found</p>
+                    <p className="nothing__description">
+                      Sorry, but nothing matched
+                      <br /> your search terms.
+                    </p>
+                  </div>
                 ) : null}
 
                 <About />
@@ -128,7 +154,7 @@ function App() {
             path="/saved-news"
             element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
-                <Main newsItems={newsItems} />
+                <Main />
                 <Footer />
               </ProtectedRoute>
             }
