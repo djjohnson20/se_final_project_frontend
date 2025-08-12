@@ -9,7 +9,7 @@ const login = ({ email, password }) => {
 const getCurrentUser = (token) => {
   return new Promise((resolve, reject) => {
     resolve({
-      data: { name: "fake user", email: "fake@example.com", _id: "fake-id" },
+      data: { name: "DJ", email: "fake@example.com", _id: "fake-id" },
     });
   });
 };

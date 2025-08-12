@@ -59,6 +59,7 @@ function NewsCardList({
             isLoggedIn={isLoggedIn}
             isSaved={isArticleSaved(article)}
             onToggleSave={onToggleSave}
+            isSavedNewsPage={isSavedNewsPage}
           />
         ))}
       </div>

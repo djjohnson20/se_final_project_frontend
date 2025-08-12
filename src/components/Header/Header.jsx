@@ -45,7 +45,14 @@ function Header({
           {savedArticles.length !== 1 ? "s" : ""}
         </h2>
         <p className="saved__keywords">
-          By keywords: <span className="keywords">{keywords.join(", ")}</span>
+          By keywords:{" "}
+          <span className="keywords">
+            {keywords.length <= 2
+              ? keywords.join(", ")
+              : `${keywords[0]}, ${keywords[1]}, and ${
+                  keywords.length - 2
+                } other${keywords.length - 2 > 1 ? "s" : ""}`}
+          </span>
         </p>
       </div>
     ) : (

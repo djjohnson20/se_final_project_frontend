@@ -90,6 +90,14 @@ function App() {
         localStorage.setItem("user", JSON.stringify(user));
         setIsLoggedIn(true);
         setCurrentUser(user);
+
+        const saved = localStorage.getItem("savedArticles");
+        if (saved) {
+          setSavedArticles(JSON.parse(saved));
+        } else {
+          setSavedArticles([]);
+        }
+
         return user;
       })
       .catch((err) => {

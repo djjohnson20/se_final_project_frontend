@@ -10,6 +10,21 @@
   list-style-type: none;
 }
 
+.card__keyword-tooltip {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background-color: #fff;
+  color: #000000;
+  font-family: "Roboto", serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 8px 22px;
+  border-radius: 4px;
+  z-index: 10;
+}
+
 .card__name-container {
   display: flex;
   flex-direction: column;
@@ -87,6 +102,14 @@
 
 .card__like-btn_saved {
   background-image: url("../../assets/likedicon.png");
+}
+
+.card__delete-btn {
+  background-image: url("../../assets/trashlight.png");
+}
+
+.card__delete-btn:hover {
+  background-image: url("../../assets/trashdark.png");
 }
 
 .card__tooltip {

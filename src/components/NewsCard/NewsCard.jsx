@@ -4,30 +4,49 @@ import "./NewsCard.css";
 
 import formatPublishedDate from "../../utils/dateformatter";
 
-function NewsCard({ article, isLoggedIn, isSaved, onToggleSave }) {
+function NewsCard({
+  article,
+  isLoggedIn,
+  isSaved,
+  onToggleSave,
+  isSavedNewsPage,
+}) {
   const [showTooltip, setShowTooltip] = useState(false);
 
   const handleMouseEnter = () => setShowTooltip(true);
   const handleMouseLeave = () => setShowTooltip(false);
 
+  const tooltipText = !isLoggedIn
+    ? "Sign in to save articles"
+    : isSavedNewsPage
+    ? "Remove from saved"
+    : "";
+
   return (
     <li className="card">
+      {isSavedNewsPage && article.keyword && (
+        <div className="card__keyword-tooltip">{article.keyword}</div>
+      )}
       <div className="card__name-container">
         <div className="card__like-wrapper">
           <button
             className={`card__like-btn ${
-              isSaved ? "card__like-btn_saved" : ""
-            }`}
+              isLoggedIn && isSaved && !isSavedNewsPage
+                ? "card__like-btn_saved"
+                : ""
+            } ${isSavedNewsPage ? "card__delete-btn" : ""}`}
             onClick={() => {
-              onToggleSave(article);
+              if (isLoggedIn) {
+                onToggleSave(article);
+              }
             }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             aria-label="Save article"
           ></button>
 
-          {!isLoggedIn && showTooltip && (
-            <div className="card__tooltip">Sign in to save articles</div>
+          {showTooltip && tooltipText && (
+            <div className="card__tooltip">{tooltipText}</div>
           )}
         </div>
 
