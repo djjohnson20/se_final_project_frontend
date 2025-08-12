@@ -13,8 +13,14 @@ function Header({
   setKeyword,
   errorMessage,
   handleSubmit,
+  savedArticles,
 }) {
   const location = useLocation();
+
+  const keywords =
+    location.pathname === "/saved-news"
+      ? [...new Set(savedArticles.map((article) => article.keyword))]
+      : [];
 
   const headerClasses = [
     "header",
@@ -34,9 +40,12 @@ function Header({
     location.pathname === "/saved-news" ? (
       <div className="saved__content">
         <p className="saved__title">Saved articles</p>
-        <h2 className="saved__articles">Elise, you have 3 saved articles</h2>
+        <h2 className="saved__articles">
+          {currentUser}, you have {savedArticles.length} saved article
+          {savedArticles.length !== 1 ? "s" : ""}
+        </h2>
         <p className="saved__keywords">
-          By keywords: <span className="keywords">puppies, tech</span>
+          By keywords: <span className="keywords">{keywords.join(", ")}</span>
         </p>
       </div>
     ) : (

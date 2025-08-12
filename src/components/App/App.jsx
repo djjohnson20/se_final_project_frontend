@@ -23,6 +23,7 @@ function App() {
   const [ApiCall, SetapiCall] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
+  const [savedArticles, setSavedArticles] = useState([]);
 
   useEffect(() => {
     const savedToken = localStorage.getItem("token");
@@ -31,6 +32,13 @@ function App() {
     if (savedToken && savedUser) {
       setIsLoggedIn(true);
       setCurrentUser(JSON.parse(savedUser));
+    }
+  }, []);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("savedArticles");
+    if (saved) {
+      setSavedArticles(JSON.parse(saved));
     }
   }, []);
 
@@ -51,7 +59,7 @@ function App() {
     sevenDaysAgo.setDate(today.getDate() - 7);
     const todayStr = today.toISOString().split("T")[0];
     const sevenDaysAgoStr = sevenDaysAgo.toISOString().split("T")[0];
-    const pageSize = "6";
+    const pageSize = "100";
 
     getNewsItems({
       q: keyword,
@@ -94,6 +102,7 @@ function App() {
     localStorage.removeItem("user");
     setIsLoggedIn(false);
     setCurrentUser("");
+    setSavedArticles([]);
   };
 
   const handleLoginClick = () => {
@@ -108,6 +117,20 @@ function App() {
     setActiveModal("");
   };
 
+  const handleToggleSaveArticle = (article) => {
+    setSavedArticles((prevSaved) => {
+      const isSaved = prevSaved.some((a) => a.url === article.url);
+
+      const newSavedArticles = isSaved
+        ? prevSaved.filter((a) => a.url !== article.url)
+        : [...prevSaved, { ...article, keyword }];
+
+      localStorage.setItem("savedArticles", JSON.stringify(newSavedArticles));
+
+      return newSavedArticles;
+    });
+  };
+
   return (
     <div className="page">
       <div className="page__content">
@@ -120,6 +143,7 @@ function App() {
           setKeyword={setKeyword}
           errorMessage={errorMessage}
           handleSubmit={handleSubmit}
+          savedArticles={savedArticles}
         />
         <Routes>
           <Route
@@ -129,7 +153,14 @@ function App() {
                 {ApiCall ? (
                   <PreLoader />
                 ) : newsItems.length > 0 ? (
-                  <Main newsItems={newsItems} setKeyword={setKeyword} />
+                  <Main
+                    newsItems={newsItems}
+                    setKeyword={setKeyword}
+                    isLoggedIn={isLoggedIn}
+                    savedArticles={savedArticles}
+                    onToggleSave={handleToggleSaveArticle}
+                    isSavedNewsPage={false}
+                  />
                 ) : hasSearched ? (
                   <div className="nothing">
                     <img
@@ -154,7 +185,13 @@ function App() {
             path="/saved-news"
             element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
-                <Main />
+                <Main
+                  newsItems={savedArticles}
+                  isLoggedIn={isLoggedIn}
+                  savedArticles={savedArticles}
+                  onToggleSave={handleToggleSaveArticle}
+                  isSavedNewsPage={true}
+                />
                 <Footer />
               </ProtectedRoute>
             }

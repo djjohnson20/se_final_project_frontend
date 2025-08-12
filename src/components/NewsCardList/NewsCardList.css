@@ -38,3 +38,7 @@
   border: none;
   cursor: pointer;
 }
+
+.newscard__show-more:hover {
+  background-image: url("../../assets/showmorehover.png");
+}

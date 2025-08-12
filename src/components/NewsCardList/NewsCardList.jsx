@@ -4,9 +4,19 @@ import { useState } from "react";
 import "./NewsCardList.css";
 import NewsCard from "../NewsCard/NewsCard";
 
-function NewsCardList({ newsItems }) {
+function NewsCardList({
+  newsItems,
+  isLoggedIn,
+  savedArticles = [],
+  onToggleSave,
+  isSavedNewsPage,
+}) {
   const location = useLocation();
   const [visibleCount, setVisibleCount] = useState(3);
+
+  const isArticleSaved = (article) => {
+    return savedArticles.some((saved) => saved.url === article.url);
+  };
 
   const searchResults = [
     "newscard__list-title",
@@ -23,10 +33,19 @@ function NewsCardList({ newsItems }) {
     .join(" ");
 
   const handleShowMore = () => {
-    setVisibleCount((newsItems || []).length);
+    setVisibleCount((prev) => {
+      const newCount = prev + 3;
+      return newCount >= (newsItems?.length || 0)
+        ? newsItems?.length || 0
+        : newCount;
+    });
   };
 
-  const visibleArticles = (newsItems || []).slice(0, visibleCount);
+  const visibleArticles = isSavedNewsPage
+    ? newsItems
+    : newsItems.slice(0, visibleCount);
+
+  const hasMore = !isSavedNewsPage && visibleCount < newsItems.length;
 
   return (
     <div className={savedNewsList}>
@@ -34,17 +53,22 @@ function NewsCardList({ newsItems }) {
 
       <div className="newscards">
         {visibleArticles.map((article) => (
-          <NewsCard key={article.url} article={article} />
+          <NewsCard
+            key={article.url}
+            article={article}
+            isLoggedIn={isLoggedIn}
+            isSaved={isArticleSaved(article)}
+            onToggleSave={onToggleSave}
+          />
         ))}
       </div>
 
-      {(newsItems || []).length > 3 &&
-        visibleCount < (newsItems || []).length && (
-          <button
-            className="newscard__show-more"
-            onClick={handleShowMore}
-          ></button>
-        )}
+      {(newsItems || []).length > 3 && hasMore && (
+        <button
+          className="newscard__show-more"
+          onClick={handleShowMore}
+        ></button>
+      )}
     </div>
   );
 }

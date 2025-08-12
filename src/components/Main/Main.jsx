@@ -1,10 +1,22 @@
 import NewsCardList from "../NewsCardList/NewsCardList";
 import "./Main.css";
 
-function Main({ newsItems }) {
+function Main({
+  newsItems,
+  isLoggedIn,
+  savedArticles,
+  onToggleSave,
+  isSavedNewsPage,
+}) {
   return (
     <div className="main">
-      <NewsCardList newsItems={newsItems} />
+      <NewsCardList
+        newsItems={newsItems}
+        isLoggedIn={isLoggedIn}
+        savedArticles={savedArticles}
+        onToggleSave={onToggleSave}
+        isSavedNewsPage={isSavedNewsPage}
+      />
     </div>
   );
 }
