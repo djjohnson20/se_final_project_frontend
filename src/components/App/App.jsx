@@ -12,7 +12,7 @@ import PreLoader from "../Preloader/Preloader";
 import ProtectedRoute from "../ProtectedRoute";
 import { login, getCurrentUser } from "../../utils/auth";
 import getNewsItems from "../../utils/api";
-import NotFoundFace from "../../assets/not-found_v1.png";
+import NotFoundFace from "../../assets/not-found_v1.svg";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");

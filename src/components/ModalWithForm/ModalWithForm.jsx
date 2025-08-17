@@ -1,13 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 
 import "./ModalWithForm.css";
 
 function ModalWithForm({ children, title, isOpen, onClose, onSubmit }) {
-  const handleKeyDown = (event) => {
-    if (event.key === "Escape") {
-      onClose();
-    }
-  };
+  const handleKeyDown = useCallback(
+    (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    },
+    [onClose]
+  );
 
   const handleOverlayClick = (event) => {
     event.stopPropagation();
@@ -21,7 +24,7 @@ function ModalWithForm({ children, title, isOpen, onClose, onSubmit }) {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [onClose]);
+  }, [handleKeyDown]);
 
   return (
     <div

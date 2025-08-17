@@ -1,13 +1,13 @@
-const login = ({ email, password }) => {
-  return new Promise((resolve, reject) => {
+const login = () => {
+  return new Promise((resolve) => {
     resolve({
       token: "some fake token",
     });
   });
 };
 
-const getCurrentUser = (token) => {
-  return new Promise((resolve, reject) => {
+const getCurrentUser = () => {
+  return new Promise((resolve) => {
     resolve({
       data: { name: "DJ", email: "fake@example.com", _id: "fake-id" },
     });

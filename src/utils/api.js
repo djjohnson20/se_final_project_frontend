@@ -1,5 +1,4 @@
 import { newsApiBaseUrl } from "./constants";
-import process from "process";
 
 function checkRes(res) {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);

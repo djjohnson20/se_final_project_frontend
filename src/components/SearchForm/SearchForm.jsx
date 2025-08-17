@@ -1,8 +1,6 @@
-import { useState } from "react";
-
 import "./SearchForm.css";
 
-function SearchForm({ keyword, setKeyword, errorMessage, handleSubmit }) {
+function SearchForm({ keyword, setKeyword, handleSubmit }) {
   const handleChange = (e) => {
     setKeyword(e.target.value);
   };

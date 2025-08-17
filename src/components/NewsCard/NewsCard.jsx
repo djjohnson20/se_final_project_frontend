@@ -50,7 +50,11 @@ function NewsCard({
           )}
         </div>
 
-        <img src={article.urlToImage} alt="" className="card__image" />
+        <img
+          src={article.urlToImage}
+          alt="news image"
+          className="card__image"
+        />
         <p className="card__date">{formatPublishedDate(article.publishedAt)}</p>
         <h2 className="card__title">{article.title}</h2>
         <p className="card__content">{article.description}</p>

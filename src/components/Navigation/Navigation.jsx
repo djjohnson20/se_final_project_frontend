@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 
 import "./Navigation.css";
-import LogoutBtn from "../../assets/logout.png";
-import LogoutBtnDark from "../../assets/logoutdark.png";
+import LogoutBtn from "../../assets/logout.svg";
+import LogoutBtnDark from "../../assets/logoutdark.svg";
 
 function Navigation({
   handleLoginClick,

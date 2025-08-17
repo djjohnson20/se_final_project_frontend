@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
 import "./Footer.css";
-import Facebook from "../../assets/fb.png";
-import GitHub from "../../assets/github.png";
+import Facebook from "../../assets/fb.svg";
+import GitHub from "../../assets/github.svg";
 
 function Footer() {
   return (

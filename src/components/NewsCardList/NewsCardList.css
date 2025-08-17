@@ -15,7 +15,7 @@
 }
 
 .newscard__list-title {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", sans-serif;
   font-weight: 400;
   font-size: 40px;
   line-height: 46px;
@@ -30,7 +30,7 @@
 
 .newscard__show-more {
   display: flex;
-  background-image: url("../../assets/showmore.png");
+  background-image: url("../../assets/showmore.svg");
   background-color: transparent;
   margin: 64px auto 80px auto;
   width: 288px;
@@ -40,5 +40,5 @@
 }
 
 .newscard__show-more:hover {
-  background-image: url("../../assets/showmorehover.png");
+  background-image: url("../../assets/showmorehover.svg");
 }
