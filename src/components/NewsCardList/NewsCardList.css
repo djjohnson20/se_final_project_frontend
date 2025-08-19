@@ -10,7 +10,7 @@
 
 .newscards {
   display: grid;
-  width: 688px;
+  max-width: 688px;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }

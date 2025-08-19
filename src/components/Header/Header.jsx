@@ -1,8 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
+import menu from "../../assets/menu.svg";
 
 function Header({
   handleLoginClick,
@@ -16,6 +18,7 @@ function Header({
   savedArticles,
 }) {
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const keywords =
     location.pathname === "/saved-news"
@@ -69,13 +72,39 @@ function Header({
         <Link className={headerLogoClasses} to="/">
           NewsExplorer
         </Link>
-        <Navigation
-          handleLoginClick={handleLoginClick}
-          isLoggedIn={isLoggedIn}
-          currentUser={currentUser}
-          handleLogOut={handleLogOut}
-        />
+
+        <nav className="nav nav--desktop">
+          <Navigation
+            handleLoginClick={handleLoginClick}
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+            handleLogOut={handleLogOut}
+          />
+        </nav>
+
+        <button
+          className="hamburger"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-nav"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <img src={menu} alt="menu icon" />
+        </button>
       </div>
+
+      {menuOpen && (
+        <div id="mobile-nav" className="mobile-nav">
+          <Navigation
+            handleLoginClick={handleLoginClick}
+            isLoggedIn={isLoggedIn}
+            currentUser={currentUser}
+            handleLogOut={handleLogOut}
+            onNavigate={() => setMenuOpen(false)}
+          />
+        </div>
+      )}
+
       {articleContent}
     </header>
   );

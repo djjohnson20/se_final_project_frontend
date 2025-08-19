@@ -31,6 +31,10 @@
   padding-bottom: 26px;
 }
 
+.hamburger {
+  display: none;
+}
+
 .header--white {
   background-image: none;
   background-color: #fff;
@@ -105,4 +109,34 @@
 }
 
 @media (max-width: 320px) {
+  .header__logo {
+    width: 117px;
+    height: 24px;
+    font-size: 16px;
+  }
+
+  .header__controls {
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hamburger {
+    display: flex;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .hamburger img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .nav--desktop {
+    display: none;
+  }
 }
