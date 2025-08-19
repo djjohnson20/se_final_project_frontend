@@ -81,3 +81,28 @@
 .keywords {
   font-weight: 700;
 }
+
+@media (max-width: 768px) {
+  .header__controls {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .header__logo {
+    width: 200px;
+    height: 24.8px;
+  }
+
+  .saved__title {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .saved__articles {
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+@media (max-width: 320px) {
+}

@@ -11,7 +11,7 @@
 .newscards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 16px;
 }
 
 .newscard__list-title {
@@ -41,4 +41,24 @@
 
 .newscard__show-more:hover {
   background-image: url("../../assets/showmorehover.svg");
+}
+
+@media (max-width: 768px) {
+  .newscard__list {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .newscards {
+    grid-template-columns: repeat(3, 220px);
+    gap: 8px;
+  }
+
+  .newscard__list-title {
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+@media (max-width: 320px) {
 }

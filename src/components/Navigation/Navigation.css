@@ -63,3 +63,20 @@
   width: 22px;
   height: 22px;
 }
+
+@media (max-width: 768px) {
+  .nav {
+    gap: 16px;
+  }
+
+  .nav__links {
+    gap: 16px;
+  }
+
+  .nav__link {
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 320px) {
+}

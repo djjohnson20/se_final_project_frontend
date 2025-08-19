@@ -36,3 +36,25 @@
   font-size: 18px;
   line-height: 24px;
 }
+
+@media (max-width: 768px) {
+  .about {
+    max-height: none;
+    padding-bottom: 2rem;
+  }
+  .about__image {
+    width: 232px;
+    height: 232px;
+    margin: 61px 0 61px 40px;
+  }
+
+  .about__description {
+    max-height: none;
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-left: 32px;
+  }
+}
+
+@media (max-width: 320px) {
+}

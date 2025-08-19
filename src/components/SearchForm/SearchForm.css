@@ -84,3 +84,30 @@
   line-height: 22px;
   opacity: 0.5;
 }
+
+@media (max-width: 768px) {
+  .search__title {
+    max-width: 385px;
+    padding-top: 38px;
+    padding-bottom: 16px;
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .search__text {
+    max-width: 452px;
+    padding-bottom: 48px;
+  }
+
+  .search__form {
+    padding-bottom: 48px;
+    width: 452px;
+  }
+
+  .search__input {
+    width: 422px;
+  }
+}
+
+@media (max-width: 320px) {
+}

@@ -45,3 +45,30 @@
   padding-right: 104px;
   padding-top: 28px;
 }
+
+@media (max-width: 768px) {
+  .footer {
+    align-items: center;
+    padding-top: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .footer__copyright,
+  .footer__links,
+  .footer__social {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 16px;
+    padding-bottom: 18px;
+  }
+
+  .footer__links,
+  .footer__social {
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 320px) {
+}
