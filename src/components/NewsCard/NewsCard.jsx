@@ -58,8 +58,8 @@ function NewsCard({
         <p className="card__date">{formatPublishedDate(article.publishedAt)}</p>
         <h2 className="card__title">{article.title}</h2>
         <p className="card__content">{article.description}</p>
-        <p className="card__description">{article.source.name}</p>
       </div>
+      <p className="card__description">{article.source.name}</p>
     </li>
   );
 }

@@ -10,6 +10,7 @@
 
 .newscards {
   display: grid;
+  width: 688px;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
@@ -45,13 +46,16 @@
 
 @media (max-width: 768px) {
   .newscard__list {
+    width: 100%;
     padding-left: 40px;
     padding-right: 40px;
+    box-sizing: border-box;
   }
 
   .newscards {
-    grid-template-columns: repeat(3, 220px);
+    grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
     gap: 8px;
+    justify-content: center;
   }
 
   .newscard__list-title {
