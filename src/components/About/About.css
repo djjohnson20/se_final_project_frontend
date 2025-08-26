@@ -56,5 +56,17 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 425px) {
+  .about {
+    flex-direction: column;
+  }
+
+  .about__image {
+    width: 272px;
+    height: 272px;
+    padding-top: 32px;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin: 0 auto;
+  }
 }

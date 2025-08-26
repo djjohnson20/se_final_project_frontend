@@ -5,6 +5,7 @@ import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 import menu from "../../assets/menu.svg";
+import closeBtn from "../../assets/closebtn.svg";
 
 function Header({
   handleLoginClick,
@@ -28,6 +29,7 @@ function Header({
   const headerClasses = [
     "header",
     location.pathname === "/saved-news" ? "header--white" : "",
+    menuOpen ? "header--menu-open" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -66,9 +68,14 @@ function Header({
         handleSubmit={handleSubmit}
       />
     );
+
   return (
     <header className={headerClasses}>
-      <div className="header__controls">
+      <div
+        className={`header__controls ${
+          menuOpen ? "header__controls--menu-open" : ""
+        }`}
+      >
         <Link className={headerLogoClasses} to="/">
           NewsExplorer
         </Link>
@@ -89,9 +96,13 @@ function Header({
           aria-controls="mobile-nav"
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <img src={menu} alt="menu icon" />
+          <img src={menuOpen ? closeBtn : menu} alt="menu icon" />
         </button>
       </div>
+
+      {menuOpen && (
+        <div className="overlay" onClick={() => setMenuOpen(false)} />
+      )}
 
       {menuOpen && (
         <div id="mobile-nav" className="mobile-nav">
@@ -101,6 +112,7 @@ function Header({
             currentUser={currentUser}
             handleLogOut={handleLogOut}
             onNavigate={() => setMenuOpen(false)}
+            closeMenu={() => setMenuOpen(false)}
           />
         </div>
       )}

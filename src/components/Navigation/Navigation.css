@@ -78,5 +78,25 @@
   }
 }
 
+@media (max-width: 425px) {
+  .nav {
+    flex-direction: column;
+    background-color: #1a1b22;
+    padding-left: 6px;
+  }
+
+  .nav__links {
+    padding-left: 16px;
+  }
+
+  .nav__sign-in {
+    width: 235px;
+    margin-left: 35px;
+  }
+}
+
 @media (max-width: 320px) {
+  .nav__sign-in {
+    margin-left: 0;
+  }
 }

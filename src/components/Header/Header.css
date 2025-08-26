@@ -108,7 +108,7 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 425px) {
   .header__logo {
     width: 117px;
     height: 24px;
@@ -136,7 +136,35 @@
     height: 24px;
   }
 
-  .nav--desktop {
+  header .nav--desktop {
     display: none;
+  }
+
+  .saved__content {
+    padding-left: 16px;
+  }
+
+  .header__controls--menu-open {
+    background-color: #1a1b22;
+    background-image: none;
+  }
+
+  .mobile-nav {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: #1a1b22;
+    z-index: 1000;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 64px);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 900;
   }
 }

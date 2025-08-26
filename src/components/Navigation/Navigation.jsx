@@ -9,6 +9,7 @@ function Navigation({
   isLoggedIn,
   currentUser,
   handleLogOut,
+  closeMenu,
 }) {
   const location = useLocation();
 
@@ -44,7 +45,13 @@ function Navigation({
             Home
           </Link>
         </ul>
-        <button onClick={handleLoginClick} className="nav__sign-in">
+        <button
+          onClick={() => {
+            if (closeMenu) closeMenu();
+            handleLoginClick();
+          }}
+          className="nav__sign-in"
+        >
           Sign In
         </button>
       </nav>
@@ -55,7 +62,13 @@ function Navigation({
         <Link className={homeClasses} to="/">
           Home
         </Link>
-        <Link className={savedArticlesClasses} to="/saved-news">
+        <Link
+          className={savedArticlesClasses}
+          to="/saved-news"
+          onClick={() => {
+            if (closeMenu) closeMenu();
+          }}
+        >
           Saved Articles
         </Link>
       </ul>
