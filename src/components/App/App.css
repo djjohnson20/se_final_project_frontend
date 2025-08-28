@@ -23,7 +23,7 @@
 
 .nothing__title {
   margin: 0;
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto Slab", "Rockwell", serif;
   font-weight: 400;
   font-size: 26px;
   line-height: 30px;
@@ -33,17 +33,11 @@
 
 .nothing__description {
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
   color: #b6bcbf;
   padding-bottom: 80px;
   text-align: center;
-}
-
-@media (max-width: 768px) {
-}
-
-@media (max-width: 320px) {
 }

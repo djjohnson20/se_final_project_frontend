@@ -16,7 +16,7 @@
   left: 24px;
   background-color: #fff;
   color: #000000;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
@@ -48,7 +48,7 @@
 
 .card__title {
   display: -webkit-box;
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto Slab", "Rockwell", serif;
   color: #1a1b22;
   font-weight: 400;
   font-size: 26px;
@@ -63,7 +63,7 @@
 
 .card__content {
   display: -webkit-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
@@ -78,7 +78,7 @@
 }
 
 .card__description {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab", "Rockwell", serif;
   color: #b6bcbf;
   font-weight: 700;
   font-size: 16px;
@@ -129,7 +129,7 @@
   transform: translateY(calc(-50% + 2px));
   background-color: #fff;
   color: #000;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   height: 40px;
   line-height: 40px;
   padding: 0 10px;
@@ -186,7 +186,4 @@
     padding: 0 12px;
     margin-top: auto;
   }
-}
-
-@media (max-width: 320px) {
 }

@@ -12,7 +12,7 @@
 }
 
 .nav__link {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
@@ -39,7 +39,7 @@
   justify-content: space-around;
   color: #fff;
   background-color: transparent;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 500;
   margin-top: 19px;

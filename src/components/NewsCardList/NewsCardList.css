@@ -16,7 +16,7 @@
 }
 
 .newscard__list-title {
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto Slab", "Rockwell", serif;
   font-weight: 400;
   font-size: 40px;
   line-height: 46px;
@@ -62,7 +62,4 @@
     font-size: 30px;
     line-height: 34px;
   }
-}
-
-@media (max-width: 320px) {
 }
