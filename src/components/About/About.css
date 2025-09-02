@@ -37,6 +37,13 @@
   line-height: 24px;
 }
 
+@media (max-width: 1024px) {
+  .about {
+    max-height: none;
+    padding-bottom: 1240px;
+  }
+}
+
 @media (max-width: 768px) {
   .about {
     max-height: none;

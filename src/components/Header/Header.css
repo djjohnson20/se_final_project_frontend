@@ -108,6 +108,13 @@
   }
 }
 
+@media (max-width: 735px) {
+  .header__controls {
+    padding-left: 40px;
+    padding-right: 30px;
+  }
+}
+
 @media (max-width: 425px) {
   .header__logo {
     width: 117px;
@@ -147,6 +154,10 @@
   .header__controls--menu-open {
     background-color: #1a1b22;
     background-image: none;
+  }
+
+  .header__controls--menu-open .header__logo {
+    color: #fff;
   }
 
   .mobile-nav {

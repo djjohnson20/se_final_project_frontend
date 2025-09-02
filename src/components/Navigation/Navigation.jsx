@@ -34,8 +34,11 @@ function Navigation({
     .filter(Boolean)
     .join(" ");
 
-  const navLogoutImage =
-    location.pathname === "/saved-news" ? LogoutBtnDark : LogoutBtn;
+  const navLogoutImage = closeMenu
+    ? LogoutBtn
+    : location.pathname === "/saved-news"
+    ? LogoutBtnDark
+    : LogoutBtn;
 
   return !isLoggedIn ? (
     <>
@@ -59,7 +62,13 @@ function Navigation({
   ) : (
     <nav className="nav">
       <ul className="nav__links">
-        <Link className={homeClasses} to="/">
+        <Link
+          className={homeClasses}
+          to="/"
+          onClick={() => {
+            if (closeMenu) closeMenu();
+          }}
+        >
           Home
         </Link>
         <Link

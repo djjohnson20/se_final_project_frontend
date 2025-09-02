@@ -46,6 +46,16 @@
   padding-top: 28px;
 }
 
+@media (max-width: 1024px) {
+  .footer {
+    justify-content: space-between;
+  }
+
+  .footer__social {
+    gap: 16px;
+  }
+}
+
 @media (max-width: 768px) {
   .footer {
     align-items: center;

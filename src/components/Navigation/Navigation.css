@@ -89,6 +89,19 @@
     padding-left: 16px;
   }
 
+  .nav__link--white {
+    color: #fff;
+  }
+
+  .nav__link--white:hover {
+    border-bottom: 3px solid #fff;
+  }
+
+  .nav__sign-in--white {
+    color: #fff;
+    border-color: #fff;
+  }
+
   .nav__sign-in {
     width: 235px;
     margin-left: 35px;

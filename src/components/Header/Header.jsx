@@ -6,6 +6,7 @@ import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 import menu from "../../assets/menu.svg";
 import closeBtn from "../../assets/closebtn.svg";
+import menuWhite from "../../assets/menuwhite.svg";
 
 function Header({
   handleLoginClick,
@@ -96,7 +97,16 @@ function Header({
           aria-controls="mobile-nav"
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <img src={menuOpen ? closeBtn : menu} alt="menu icon" />
+          <img
+            src={
+              menuOpen
+                ? closeBtn
+                : location.pathname === "/saved-news"
+                ? menuWhite
+                : menu
+            }
+            alt="menu icon"
+          />
         </button>
       </div>
 
