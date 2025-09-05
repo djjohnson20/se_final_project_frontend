@@ -9,9 +9,10 @@
 }
 
 .newscards {
-  display: grid;
-  max-width: 688px;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1200px;
   gap: 16px;
 }
 

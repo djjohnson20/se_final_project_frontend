@@ -147,3 +147,24 @@
     padding-right: 16px;
   }
 }
+
+@media (max-width: 375px) {
+  .search__input {
+    width: 245px;
+    font-size: 10px;
+  }
+
+  .search__btn {
+    width: 270px;
+  }
+}
+
+@media (max-width: 320px) {
+  .search__input {
+    width: 200px;
+  }
+
+  .search__btn {
+    width: 230px;
+  }
+}
