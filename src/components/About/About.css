@@ -77,3 +77,13 @@
     margin: 0 auto;
   }
 }
+
+@media (max-width: 375px) {
+}
+
+@media (max-width: 320px) {
+  .about__image {
+    width: 200px;
+    height: 190px;
+  }
+}

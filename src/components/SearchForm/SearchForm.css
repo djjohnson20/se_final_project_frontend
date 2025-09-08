@@ -160,6 +160,11 @@
 }
 
 @media (max-width: 320px) {
+  .search__form {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   .search__input {
     width: 200px;
   }

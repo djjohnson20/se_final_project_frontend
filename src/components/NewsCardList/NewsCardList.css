@@ -11,8 +11,9 @@
 .newscards {
   display: flex;
   flex-direction: row;
+  justify-content: left;
   flex-wrap: wrap;
-  max-width: 1200px;
+  max-width: 1440px;
   gap: 16px;
 }
 
@@ -54,7 +55,6 @@
   }
 
   .newscards {
-    grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
     gap: 8px;
     justify-content: center;
   }
@@ -62,5 +62,12 @@
   .newscard__list-title {
     font-size: 30px;
     line-height: 34px;
+  }
+}
+
+@media (max-width: 425px) {
+  .newscard__list {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
