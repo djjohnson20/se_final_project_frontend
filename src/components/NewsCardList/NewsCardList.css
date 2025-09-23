@@ -1,6 +1,6 @@
 .newscard__list {
-  padding-left: 104px;
-  padding-right: 104px;
+  padding-left: 80px;
+  padding-right: 80px;
   padding-bottom: 208px;
 }
 
@@ -13,7 +13,6 @@
   flex-direction: row;
   justify-content: left;
   flex-wrap: wrap;
-  max-width: 1440px;
   gap: 16px;
 }
 
@@ -46,11 +45,16 @@
   background-image: url("../../assets/showmorehover.svg");
 }
 
+@media (max-width: 1024px) {
+  .newscard__list {
+  }
+}
+
 @media (max-width: 768px) {
   .newscard__list {
     width: 100%;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
     box-sizing: border-box;
   }
 
