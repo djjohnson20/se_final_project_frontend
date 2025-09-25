@@ -1,0 +1,30 @@
+.modal__login {
+  background: transparent;
+}
+
+.modal__buttons-container {
+  display: flex;
+  gap: 12px;
+}
+
+.modal__login-button {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.modal__login-button {
+  background: none;
+  color: #000;
+  border: none;
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 320px) {
+}
